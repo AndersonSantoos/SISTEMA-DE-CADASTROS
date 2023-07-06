@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+<meta name="author" content="Anderson Santos"/>
+<title>Sistema de cadastro de alunos</title>
+</head>
+<body>
+
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container" style="margin-top: 50px">
+    <h4>Inserir Alunos</h4>
+    <hr>
+    <br>
+    <form method="post" action="/InsertAlunos" th:object="${aluno}">
+    <div class="row">
+    
+
+        <!--Codificação do nome do aluno  -->
+
+
+    <div class="col-md-6 form-group offset-md-3"> <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+        <label class="validation-message" th:errors="*{nome}"></label>
+
+    </div>
+        <label>Nome do Aluno</label>
+        <input class="form-control" placeholder="Ex: Anderson Santos" th:field="*{nome}">
+    </div>
+    </div>        
+
+        <!--Estrutura de código para curso-->
+
+        <div class="row">
+
+        <div class="col-md-6 form-group offset-md-3"> <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}">
+        <label class="validation-message" th:errors="*{curso}"></label>
+        </div>
+
+            <label>Selecione o curso</label>
+            <select class="form-control" th:field="*{curso}">
+            <option th:each="curso: ${T(com.sistemaDeCadastros.Enums.Curso).values()}"
+            th:value="${curso}" th:text="${curso}"></option>
+
+            </select>
+        </div>
+        </div> 
+
+
+        <!-- Matricula -->
+		
+		
+		<div class="row">
+            <div class="col-md-6 form-group offset-md-3"> <div class= "alert alert-danger" role="alert" th:if="${#fields.hasErrors('matricula')}">
+            <label class="validation-message" th:errors="*{matricula}"></label>
+            
+            </div>
+                 <label>Gerar Matricula: </label>
+                 <input class="form-control" id="matricula" th:field="*{matricula}">
+                 <button type="button" onclick="GerarMatricula();" class="btn btn-dark" style="margin-top: 10px">Gerar</button>
+            </div>
+            </div>
+
+
+            <!-- Status -->
+		
+		<div class="row">
+            <div class="col-md-6 form-group offset-md-3">
+            <div class= "alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
+            <label class="validation-message" th:errors="*{status}"></label>
+            
+            </div>
+            
+                 <label>Selecione o Status:</label>
+                 <select class="form-control" th:field="*{status}">
+                 <option th:each="status: ${T(com.sistemaDeCadastros.Enums.Status).values()}"
+                 th:value="${status}" th:text="${status}"></option>
+                 
+                 </select>
+            </div>
+            </div>
+
+
+            <!-- Turno  -->
+		
+		
+		<div class="row">
+            <div class="col-md-6 form-group offset-md-3">
+            
+            <div class= "alert alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}">
+            <label class="validation-message" th:errors="*{turno}"></label>
+            
+            </div>
+            
+                 <label>Turno:</label>
+                 <input class="form-control" placeholder="Ex: Manhã" th:field="*{turno}">
+            </div>
+            </div>
+            
+            
+            
+            <div class="row">
+            <button type="submit" class="btn btn-sucess offset-md-4">SALVAR</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-outline-danger">VOLTAR</a>
+            </div>
+
+
+
+
+
+
+
+
+
+    </form>
+    
+    
+    
+    
+    </div>
+
+
+
+
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/main.js"></script>
+    <script src="/webjars/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+   
+  </body>
+</html>    

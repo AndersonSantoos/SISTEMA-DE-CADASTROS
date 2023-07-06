@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/006642858d.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+<meta name="author" content="Anderson Santos"/>
+<title>Sistema de cadastro de alunos</title>
+</head>
+<body>
+
+    <header th:fragment="cabecalho">
+
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:  #283593;">
+            <a class="navbar-brand" th:href="@{/index}">
+                <img src="img/educacao.jpg" width="150px">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+            <div id="navMobile" class="navbar-collapse collapse justify-content-end">
+
+                <a class="nav-item nav-link" th:href="@{/index}"><i class="fas fa-home"></i> Home</a>
+                <a class="nav-item nav-link" th:href="@{inserirAlunos}"><i class="fas fa-user-graduate"></i> Cadastrar Aluno</a>
+                <a class="nav-item nav-link" th:href="@{filtro-alunos}"> <i class="fas fa-search"></i> Pesquisar Aluno</a>
+                <form action="/logout" method="post">
+                <button type="submit" class="btn-nav nav-item nav-link btn-danger"> <i class="fas fa-times"></i> Sair</button>
+                </form>
+    
+    
+    
+              </div>
+
+         </nav>     
+
+         
+
+    </header>
+
+
+
+    <footer th:fragment="rodape">
+        <div class="rodape">
+            <span>TODOS OS DIREITOS RESERVADOS - 2023 &copy; ANDERSON SANTOS</span>
+        </div> 
+
+    </footer>
+
+      
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/webjars/jquery/3.6.4/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
