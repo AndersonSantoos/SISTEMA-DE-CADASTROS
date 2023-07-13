@@ -1,16 +1,16 @@
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/sistemaAluno
-        username: root
-        password: Santos!100
-        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:postgresql://@dpg-cinkaj5gkuvudi986vhg-a.oregon-postgres.render.com/sistema_alunos_spring:3306/sistema_alunos_spring
+        username: sistema_alunos_spring_user
+        password: JQWYdkbkWtYh19xQ27bNa2eN1hXFeqz8
+        driver-class-name: org.postgresql.Driver
     jpa:
         show-sql: true
         hibernate:
             ddl-auto: update
         properties:
             hibernate:
-            dialect: org.hibernate.dialect.MySQL8Dialect
+            dialect: org.hibernate.dialect.PostgreSQLDialect
     thymeleaf:
         prefix: classpath:/templates/
         suffix: .html
